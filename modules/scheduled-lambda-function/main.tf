@@ -7,7 +7,7 @@ resource "random_string" "rand" {
 locals {
   namespace = substr(join("-", [var.namespace, random_string.rand.result]), 0, 24)
   opensearch = {
-    snapshot_poll_interval = "120 minutes"
+    snapshot_poll_interval = "240 minutes"
   }
 }
 
@@ -29,16 +29,7 @@ resource "aws_iam_role" "for-lambda" {
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
-# resource "null_resource" "install_python_packages" {
-#   provisioner "local-exec" {
-#     command = "pip3 install -r ${path.module}/src/requirements.txt -t ${path.module}/src"
-#   }
 
-#   triggers = {
-#     dependencies = filemd5("${path.module}/src/requirements.txt")
-#     source       = filemd5("${path.module}/src/hello_world.py")
-#   }
-# }
 
 # resource "random_uuid" "lambda_src_hash" {
 #   keepers = {

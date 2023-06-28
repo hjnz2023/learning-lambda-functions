@@ -8,7 +8,8 @@ module "opensearch_cluster" {
 }
 
 module "check_opensearch_snapshot_lambda" {
-  source     = "./modules/scheduled-lambda-function"
-  namespace  = local.namespace
-  opensearch = module.opensearch_cluster.opensearch
+  source             = "./modules/scheduled-lambda-function"
+  namespace          = local.namespace
+  opensearch         = module.opensearch_cluster.opensearch
+  always_pip_install = var.is_remote
 }

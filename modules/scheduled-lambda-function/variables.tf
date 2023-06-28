@@ -15,3 +15,8 @@ variable "python_version" {
   type    = string
   default = "3.8"
 }
+
+variable "always_pip_install" {
+  type    = bool
+  default = false
+}

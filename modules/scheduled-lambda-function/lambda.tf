@@ -23,5 +23,5 @@ resource "aws_lambda_function" "check_opensearch_snapshot" {
     }
   }
 
-  runtime = "python${var.python_version}"
+  runtime = local.python_version
 }
