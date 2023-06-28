@@ -5,7 +5,7 @@ import os
 from requests_aws4auth import AWS4Auth
 
 def lambda_handler(event, context):
-    host = os.environ.get("MESSAGE")
+    host = os.environ.get("HOST")
     region = 'ap-southeast-2' # e.g. us-west-1
     service = 'es'
     credentials = boto3.Session().get_credentials()
