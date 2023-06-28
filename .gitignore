@@ -1,0 +1,5 @@
+.terraform.lock.hcl
+bin
+.DS_Store
+.terraform
+.vscode
