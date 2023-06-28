@@ -65,6 +65,12 @@ resource "aws_lambda_function" "hello_world" {
   role             = aws_iam_role.for-lambda.arn
   handler          = "hello_world.lambda_handler"
 
+  environment {
+    variables = {
+      "HOST" = "https://${var.opensearch.endpoint}/"
+    }
+  }
+
   runtime = "python3.10"
 }
 
