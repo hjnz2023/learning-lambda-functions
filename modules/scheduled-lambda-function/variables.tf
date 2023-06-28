@@ -10,3 +10,8 @@ variable "opensearch" {
     endpoint    = string
   })
 }
+
+variable "python_version" {
+  type    = string
+  default = "3.8"
+}

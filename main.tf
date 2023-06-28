@@ -3,9 +3,8 @@ module "opensearch_cluster" {
   domain_name = "experiment-01"
 }
 
-module "hello_world_lambda" {
+module "check_opensearch_snapshot_lambda" {
   source     = "./modules/scheduled-lambda-function"
   namespace  = "experiment-01"
   opensearch = module.opensearch_cluster.opensearch
-
 }

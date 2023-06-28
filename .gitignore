@@ -4,3 +4,5 @@ bin
 .terraform
 .vscode
 *.zip
+.venv
+layer

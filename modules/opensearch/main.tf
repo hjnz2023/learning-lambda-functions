@@ -3,7 +3,8 @@ resource "aws_opensearch_domain" "default" {
   engine_version = "OpenSearch_2.5"
 
   cluster_config {
-    instance_type = "t3.small.search"
+    instance_type  = "t3.small.search"
+    instance_count = 2
   }
 
   ebs_options {

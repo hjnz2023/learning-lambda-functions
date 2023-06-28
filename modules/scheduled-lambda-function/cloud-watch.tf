@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "allow_create_logs" {
 }
 
 resource "aws_iam_policy" "logging" {
-  name   = "logging"
+  name   = "${local.namespace}-logging"
   policy = data.aws_iam_policy_document.allow_create_logs.json
 }
 
