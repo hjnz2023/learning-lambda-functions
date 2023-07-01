@@ -2,7 +2,7 @@ resource "aws_cloudwatch_event_rule" "poll_opensearch_snapshot_status" {
   name                = "${local.namespace}-poll-opensearch-snapshot-status"
   description         = "Poll OpenSearch snapshot status every ${local.opensearch.snapshot_poll_interval}"
   schedule_expression = "rate(${local.opensearch.snapshot_poll_interval})"
-  is_enabled          = true
+  is_enabled          = !var.disabled_tigger
 }
 
 resource "aws_cloudwatch_event_target" "lambda_target" {

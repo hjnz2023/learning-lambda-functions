@@ -12,4 +12,5 @@ module "check_opensearch_snapshot_lambda" {
   namespace          = local.namespace
   opensearch         = module.opensearch_cluster.opensearch
   always_pip_install = var.is_remote
+  disabled_tigger    = true
 }

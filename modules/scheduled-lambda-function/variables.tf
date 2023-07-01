@@ -20,3 +20,8 @@ variable "always_pip_install" {
   type    = bool
   default = false
 }
+
+variable "disabled_tigger" {
+  type    = bool
+  default = false
+}
