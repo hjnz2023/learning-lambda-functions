@@ -11,6 +11,14 @@ resource "aws_opensearch_domain" "default" {
     ebs_enabled = true
     volume_size = 10
   }
+
+  dynamic "log_publishing_options" {
+    for_each = aws_cloudwatch_log_group.log_group
+    content {
+      log_type                 = log_publishing_options.key
+      cloudwatch_log_group_arn = log_publishing_options.value.arn
+    }
+  }
 }
 
 
